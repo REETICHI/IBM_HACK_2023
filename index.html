@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Success Probability Predictor</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url("https://static.displate.com/1200x857/displate/2023-01-03/5c74f18cffe431b86fd43ccb48dd791d_de32ccb4c6604b5e9715e4bcd3996565.jpg");
+            opacity: 1.5;
+        }
+        .container {
+            width: 340px;
+            margin: 0 auto;
+            padding: 30px;
+            background-image: url("https://static.displate.com/1200x857/displate/2020-03-17/d795e73bb818743807ab41bf852eda31_a1b907dbbe82cf9f01b15dc8d5502f26.jpg");
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(253, 253, 253, 0.886);
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #09202a;
+        }
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+            border: 1px solid #64308a;
+            border-radius: 3px;
+        }
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: crimson;
+            color: #fff;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #b57dad;
+        }
+        h2.result {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 18px;
+            color: rgb(87, 16, 37);
+        }
+    </style>
+</head>
+<body>
+    <form method="POST">
+        <div class="container">
+            <h2 >Waste Whiz</h2>
+            <label for="Deal_value">Deal Value:</label>
+            <input type="text" name="Deal_value" placeholder="Deal value">
+            <label for="Weighted_amount">Weighted Amount:</label>
+            <input type="text" name="Weighted_amount" placeholder="Weighted amount">
+            <label for="Internal_rating">Internal Rating:</label>
+            <input type="text" placeholder="Internal rating"list="Internal_rating" name="Internal_rating"/>
+          <datalist id="Internal_rating">
+            <option value="1"></option>
+            <option value="2"></option>
+            <option value="3"></option>
+            <option value="4"></option>
+            <option value="5"></option>
+          </datalist>
+            <label for="Pitch">Pitch:</label>
+            <input type="text" placeholder="Pitch"list="Pitch" name="Pitch"/>
+            <datalist id="Pitch">
+              <option value="1">Product-1</option>
+              <option value="2">Product-2</option>
+              
+            </datalist>
+            <label for="Fund_category">Fund Category:</label>
+            <input type="text" placeholder="Fund category"list="Fund_category" name="Fund_category"/>
+          <datalist id="Fund_category">
+            <option value="1">Category-1</option>
+            <option value="2">Category-2</option>
+            <option value="3">Category-3</option>
+            <option value="4">Category-4</option>
+            
+          </datalist>
+            <label for="Lead_revenue">Lead Revenue:</label>
+            <input type="text" name="Lead_revenue" placeholder="Lead revenue" list="Lead_revenue"/>
+            <datalist id="Lead_revenue">
+                <option value="1">50-100Million</option>
+                <option value="2">100-500Million</option>
+                <option value="3">500Million-1Billion</option>
+              </datalist>
+            <label for="Resource">Resource:</label>
+            <input type="text" placeholder="Resource"list="Resource" name="Resource"/>
+          <datalist id="Resource">
+            <option value="0">Not Deliverable/Available</option>
+            <option value="1">Deliverable/Available</option>
+            
+          </datalist>
+            <label for="Lead_source">Lead Source:</label>
+            <input type="text" placeholder="Lead source"list="Lead_source" name="Lead_source"/>
+            <datalist id="Lead_source">
+              <option value="1">Website</option>
+              <option value="2">Marketing Event</option>
+              <option value="3">Contact Email</option>
+              <option value="4">Others</option>
+            </datalist>
+            <label for="Level_of_meeting">Level of Meeting:</label>
+            <input type="text" placeholder="Level of meeting"list="Level_of_meeting" name="Level_of_meeting"/>
+            <datalist id="Level_of_meeting">
+              <option value="1">Level-1</option>
+              <option value="2">Level-2</option>
+              <option value="3">Level-3</option>
+            </datalist>
+            <button type="submit">PREDICT</button>
+        </div>
+    </form>
+    {% if prediction %}
+    <h2 class="result" >Predicted Success Probability: {{ prediction }}</h2>
+    {% endif %}
+</body>
+</html>
